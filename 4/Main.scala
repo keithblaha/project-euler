@@ -7,7 +7,7 @@ object Main extends App {
 
   var max = -1
   val solution = {
-    val space = (100 until 1000).foreach(x => {
+    (100 until 1000).foreach(x => {
       (100 until 1000).foreach(y => {
         val n = x * y
         if(isPalindrome(n.toString) && n > max) max = n
