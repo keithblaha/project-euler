@@ -13,7 +13,7 @@ object Main extends App {
     s * s
   }
   val solution = {
-    squareOfSums(100) - sumOfSquares(100) 
+    squareOfSums(100) - sumOfSquares(100)
   }
   Console.println(solution)
 }
