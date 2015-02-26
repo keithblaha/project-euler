@@ -15,6 +15,7 @@ object Main extends App {
         }
       }
     })
+    primes(10000)
   }
-  Console.println(primes(10000))
+  Console.println(solution)
 }
