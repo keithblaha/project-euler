@@ -10,8 +10,7 @@ object Main extends App {
     nums.foreach(n => {
       if(map.getOrElse(n, false)) {
         primes += n
-        val cap = limit / n
-        for(composite <- n*2 to cap * n by n) {
+        for(composite <- n*2 to limit by n) {
           map(composite) = false
         }
       }
