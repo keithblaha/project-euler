@@ -12,7 +12,7 @@ object Factor {
         num /= i
       }
     }
-    primeFactors.groupBy(x=>x).map(x=>(x._1, x._2.size))
+    primeFactors.groupBy(x => x).map(x => (x._1, x._2.size))
   }
 
   def numFactors(n: Int, primes: Traversable[Int]) = {

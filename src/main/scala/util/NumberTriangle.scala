@@ -4,7 +4,7 @@ class NumberTriangle(nums: String) {
   val nodes = {
     // create list of list of NumberNodes by parsing initial string
     val t = nums.split("\n").map(_.trim).filterNot(_.isEmpty)
-              .map(_.split(" ").map(x=> new NumberNode(x.toInt)))
+              .map(_.split(" ").map(x => new NumberNode(x.toInt)))
 
     // set parent pointers
     for(i <- (1 until t.size); j <- (0 to i)) {

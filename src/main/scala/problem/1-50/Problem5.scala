@@ -14,7 +14,7 @@ class Problem5 extends EulerProblem {
         maxPowers(j) = Math.max(primeFact.getOrElse(j, 0), maxPowers.getOrElse(j, 0))
       })
     })
-    maxPowers.map(x=>Math.pow(x._1, x._2)).product.toInt
+    maxPowers.map(x => Math.pow(x._1, x._2)).product.toInt
   }
 }
 
