@@ -1,4 +1,4 @@
 package com.keithblaha.euler.problem
 
-class Problem67 extends Problem18 {}
+class Problem67 extends Problem18
 
