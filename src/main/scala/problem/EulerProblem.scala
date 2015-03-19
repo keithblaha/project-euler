@@ -7,6 +7,6 @@ class EulerProblem {
     s"""/${getClass.getSimpleName.stripPrefix("Problem")}.txt"""
   ))
 
-  def solution: AnyVal = {}
+  def solution: Any = {}
 }
 
