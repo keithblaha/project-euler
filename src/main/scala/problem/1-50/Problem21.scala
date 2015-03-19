@@ -1,10 +1,10 @@
 package com.keithblaha.euler.problem
 
 import com.keithblaha.euler.util.Factor._
-import com.keithblaha.euler.util.Primes._
+import com.keithblaha.euler.util.Sequences._
 
 class Problem21 extends EulerProblem {
-  val primes = generatePrimesTo(1000)
+  val primes = primesTo(1000)
 
   def amicableWith(n: Int) = {
     val d = sumOfProperDivisors(n, primes)

@@ -2,8 +2,8 @@ package com.keithblaha.euler.util
 
 import scala.collection.mutable.Buffer
 
-object Primes {
-  def generatePrimesTo(limit: Int) = {
+object Sequences {
+  def primesTo(limit: Int) = {
     // use optimized Sieve of Eratosthenes
     val isPrimeMap = scala.collection.mutable.Map[Int, Boolean]()
     val primes = Buffer[Int](2)
@@ -20,6 +20,23 @@ object Primes {
     })
 
     primes
+  }
+
+  def fibonacciUntil(condition: BigInt => Boolean) = {
+    val nums = Buffer[BigInt](1, 1)
+
+    def nextIf = {
+      val nextFib = nums.takeRight(2).sum
+      if(!condition(nextFib)) {
+        nums += nextFib
+        true
+      }
+      else false
+    }
+
+    while(nextIf) {}
+
+    nums
   }
 }
 
