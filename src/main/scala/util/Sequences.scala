@@ -25,16 +25,8 @@ object Sequences {
   def fibonacciUntil(condition: BigInt => Boolean) = {
     val nums = Buffer[BigInt](1, 1)
 
-    def nextIf = {
-      val nextFib = nums.takeRight(2).sum
-      if(!condition(nextFib)) {
-        nums += nextFib
-        true
-      }
-      else false
-    }
-
-    while(nextIf) {}
+    def nextFib = nums.takeRight(2).sum
+    while(!condition(nextFib)) nums += nextFib
 
     nums
   }
