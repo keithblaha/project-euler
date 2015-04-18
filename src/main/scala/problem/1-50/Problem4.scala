@@ -1,7 +1,9 @@
 package com.keithblaha.euler.problem
 
+import scala.annotation.tailrec
+
 class Problem4 extends EulerProblem {
-  def isPalindrome(s: String): Boolean =  {
+  @tailrec private def isPalindrome(s: String): Boolean =  {
     if (s.length <= 1) true
     else if (s.head == s.last) isPalindrome(s.slice(1, s.length-1))
     else false

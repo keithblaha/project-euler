@@ -7,8 +7,8 @@ class Problem21 extends EulerProblem {
   val primes = primesTo(1000)
 
   def amicableWith(n: Int) = {
-    val d = sumOfProperDivisors(n, primes)
-    if(sumOfProperDivisors(d, primes) == n && d != n) d
+    val d = sumOfProperFactors(n, primes)
+    if(sumOfProperFactors(d, primes) == n && d != n) d
     else -1
   }
 

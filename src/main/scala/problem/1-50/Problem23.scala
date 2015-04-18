@@ -9,7 +9,7 @@ class Problem23 extends EulerProblem {
   val limit = 28123
   val nums = (1 to limit)
   val primes = primesTo(limit)
-  val abundantNumbers = nums.filter(n => sumOfProperDivisors(n, primes) > n)
+  val abundantNumbers = nums.filter(n => sumOfProperFactors(n, primes) > n)
 
   val sumsOfAbundants = scala.collection.mutable.Set[Int]()
   for(i <- 0 until abundantNumbers.size) {
