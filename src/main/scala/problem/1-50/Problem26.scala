@@ -9,7 +9,7 @@ class Problem26 extends EulerProblem {
     var t = -1
 
     breakable {
-      for(x <- 0 to denominator) {
+      for(x <- 0 until denominator) {
         val v = BigInt(10).modPow(x, denominator).toInt
         if(s.contains(v)) {
           t = v;
