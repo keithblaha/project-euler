@@ -1,17 +1,18 @@
 package com.keithblaha.euler.problem
 
-import scala.collection.mutable.SortedSet
+import scala.collection.mutable.LinkedHashSet
 import scala.util.control.Breaks._
 
 class Problem26 extends EulerProblem {
-  def recurringCycleLengthForUnitFraction(denominator: Int) = {
-    val s = SortedSet[Int]()
+  def recurringCycleLengthForUnitFraction(denominator: Int): Int = {
+    val s = LinkedHashSet[Int]()
     var t = -1
 
     breakable {
       for(x <- 0 until denominator) {
         val v = BigInt(10).modPow(x, denominator).toInt
-        if(s.contains(v)) {
+        if(v == 0) return 0
+        else if(s.contains(v)) {
           t = v;
           break;
         }
@@ -20,7 +21,7 @@ class Problem26 extends EulerProblem {
     }
 
     var i = s.toList.indexOf(t)
-    if(i > 0) s.size - i + 1
+    if(i > 0) s.size - i
     else s.size
   }
 
