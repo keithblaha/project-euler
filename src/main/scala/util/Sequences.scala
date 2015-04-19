@@ -22,13 +22,9 @@ object Sequences {
     primes
   }
 
-  def fibonacciUntil(condition: BigInt => Boolean) = {
-    val nums = Buffer[BigInt](1, 1)
-
-    def nextFib = nums.takeRight(2).sum
-    while(!condition(nextFib)) nums += nextFib
-
-    nums
+  def fibonacciWhile(condition: BigInt => Boolean) = {
+    lazy val fibs: Stream[BigInt] = BigInt(1) #:: BigInt(1) #:: fibs.zip(fibs.tail).map{n => n._1 + n._2}
+    fibs.takeWhile(condition)
   }
 }
 

@@ -1,7 +1,5 @@
 package com.keithblaha.euler.util
 
-import scala.annotation.tailrec
-
 import scala.collection.mutable.Buffer
 
 object Factor {

@@ -1,28 +1,19 @@
 package com.keithblaha.euler.problem
 
+import scala.annotation.tailrec
 import scala.collection.mutable.LinkedHashSet
-import scala.util.control.Breaks._
 
 class Problem26 extends EulerProblem {
-  def recurringCycleLengthForUnitFraction(denominator: Int): Int = {
-    val s = LinkedHashSet[Int]()
-    var t = -1
+  @tailrec private def recurringCycleLengthForUnitFraction(denominator: Int, l: LinkedHashSet[Int] = LinkedHashSet()): Int = {
+    val v = BigInt(10).modPow(l.size, denominator).toInt
 
-    breakable {
-      for(x <- 0 until denominator) {
-        val v = BigInt(10).modPow(x, denominator).toInt
-        if(v == 0) return 0
-        else if(s.contains(v)) {
-          t = v;
-          break;
-        }
-        else s += v
-      }
+    if(v == 0) 0
+    else if(l.contains(v)) {
+      var i = l.toList.indexOf(v)
+      if(i > 0) l.size - i
+      else l.size
     }
-
-    var i = s.toList.indexOf(t)
-    if(i > 0) s.size - i
-    else s.size
+    else recurringCycleLengthForUnitFraction(denominator, l += v)
   }
 
   override def solution = {

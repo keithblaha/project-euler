@@ -1,7 +1,5 @@
 package com.keithblaha.euler.problem
 
-import scala.util.control.Breaks._
-
 import com.keithblaha.euler.util.Factor._
 import com.keithblaha.euler.util.Sequences._
 import com.keithblaha.euler.util.Sum._
@@ -10,16 +8,7 @@ class Problem12 extends EulerProblem {
   val primes = primesTo(1000)
 
   override def solution = {
-    var n = 1
-    var nth = 1
-    breakable {
-      while(true) {
-        nth = sumTo(n)
-        if(numFactors(nth, primes) > 500) break
-        else n += 1
-      }
-    }
-    nth
+    Stream.from(1).map(x => (x, sumTo(x))).find(x => numFactors(x._2, primes) > 500).get._2
   }
 }
 
