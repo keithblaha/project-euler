@@ -8,11 +8,7 @@ class Problem26 extends EulerProblem {
     val v = BigInt(10).modPow(l.size, denominator).toInt
 
     if(v == 0) 0
-    else if(l.contains(v)) {
-      var i = l.toList.indexOf(v)
-      if(i > 0) l.size - i
-      else l.size
-    }
+    else if(l.contains(v)) l.size - l.toList.indexOf(v)
     else recurringCycleLengthForUnitFraction(denominator, l += v)
   }
 
