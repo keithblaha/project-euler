@@ -35,11 +35,12 @@ class EulerTests extends FlatSpec with Matchers {
     29 -> 9183,
     30 -> 443839,
     31 -> 73682,
+    32 -> 45228,
     67 -> 7273
   )
 
   answersToProblems.keys.toSeq.sorted.foreach(p => {
-    s"""Problem $p""" should "return the correct solution" in {
+    s"Problem $p" should "return the correct solution" in {
       val solution = Class.forName("com.keithblaha.euler.problem.Problem" + p).newInstance.asInstanceOf[EulerProblem].solution
       solution should be (answersToProblems(p))
     }

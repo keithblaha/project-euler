@@ -14,7 +14,7 @@ object Main extends App {
     val start = System.currentTimeMillis
     val s = Class.forName("com.keithblaha.euler.problem.Problem" + p).newInstance.asInstanceOf[EulerProblem].solution
     val t = System.currentTimeMillis - start
-    Console.println(s"""Problem $p's solution $s was found in ${t}ms""")
+    Console.println(s"Problem $p's solution $s was found in ${t}ms")
   })
 }
 
