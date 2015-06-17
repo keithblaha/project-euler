@@ -37,6 +37,7 @@ class EulerTests extends FlatSpec with Matchers {
     31 -> 73682,
     32 -> 45228,
     33 -> 100,
+    34 -> 40730,
     67 -> 7273
   )
 
