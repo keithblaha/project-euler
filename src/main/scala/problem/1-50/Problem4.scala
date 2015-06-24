@@ -1,14 +1,8 @@
 package com.keithblaha.euler.problem
 
-import scala.annotation.tailrec
+import com.keithblaha.euler.util.String._
 
 class Problem4 extends EulerProblem {
-  @tailrec private def isPalindrome(s: String): Boolean =  {
-    if (s.length <= 1) true
-    else if (s.head == s.last) isPalindrome(s.slice(1, s.length-1))
-    else false
-  }
-
   override def solution = {
     var max = -1
     (100 until 1000).foreach(x => {
