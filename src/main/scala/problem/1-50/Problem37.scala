@@ -2,21 +2,21 @@ package com.keithblaha.euler.problem
 
 import com.keithblaha.euler.util.Sequences._
 
-class Problem35 extends EulerProblem {
+class Problem37 extends EulerProblem {
   val primes = primesTo(1000000).toSet
 
   override def solution = {
     (for {
       n <- primes
-      rotations = {
+      trunks = {
         val nStr = n.toString
-        (1 until nStr.size).map(i => {
+        (1 until nStr.size).flatMap(i => {
           val s = nStr.splitAt(i)
-          (s._2 + s._1).toInt
+          Seq(s._1, s._2).map(_.toInt)
         })
       }
-      if rotations.forall(primes.contains)
-    } yield n).size
+      if trunks.forall(primes.contains)
+    } yield n).filter(_ > 7).sum
   }
 }
 
