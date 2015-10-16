@@ -1,7 +1,9 @@
 package com.keithblaha.euler.problem
 
+import com.keithblaha.euler.util.Sequences._
+
 class Problem44 extends EulerProblem {
-  val pentagonals = Stream.iterate((1,1))(x => (x._1 + 1, (x._1 + 1) * (3*(x._1 + 1) - 1) / 2)).takeWhile(_._2 <= 10000000).map(_._2).toList
+  val pentagonals = pentagonalsTo(10000000)
   val pentagonalsSet = pentagonals.toSet
 
   override def solution = (for {

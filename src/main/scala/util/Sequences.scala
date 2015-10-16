@@ -26,5 +26,17 @@ object Sequences {
     lazy val fibs: Stream[BigInt] = BigInt(1) #:: BigInt(1) #:: fibs.zip(fibs.tail).map{n => n._1 + n._2}
     fibs.takeWhile(condition)
   }
+
+  def triangularsTo(limit: Long) = {
+    Stream.iterate((1L,1L))(x=>(x._1+1,x._1+x._2+1)).takeWhile(_._2 <= limit).map(_._2).toList
+  }
+
+  def pentagonalsTo(limit: Long) = {
+    Stream.iterate((1L,1L))(x => (x._1 + 1, (x._1 + 1) * (3*(x._1 + 1) - 1) / 2)).takeWhile(_._2 <= limit).map(_._2).toList
+  }
+
+  def hexagonalsTo(limit: Long) = {
+    Stream.iterate((1L,1L))(x => (x._1 + 1, (x._1 + 1) * (2*(x._1 + 1) - 1))).takeWhile(_._2 <= limit).map(_._2).toList
+  }
 }
 
