@@ -49,6 +49,7 @@ class EulerTests extends FlatSpec with Matchers {
     43 -> 16695334890L,
     44 -> 5482660,
     45 -> 1533776805L,
+    46 -> 5777,
     67 -> 7273
   )
 
