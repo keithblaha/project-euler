@@ -56,6 +56,7 @@ class EulerTests extends FlatSpec with Matchers {
     50 -> 997651,
     51 -> 121313,
     52 -> 142857,
+    53 -> 4075,
     67 -> 7273
   )
 
