@@ -33,6 +33,15 @@ object Factor {
     n != m && properFactors(n, primes).intersect(properFactors(m, primes)).size == 1
   }
 
+  def isPrime(n: Int) = {
+    if(n % 2 == 0 || n <= 1) n == 2
+    else {
+      val sqrtN = Math.sqrt(n)
+      if(n % sqrtN == 0) false
+      else Stream.from(3, 2).takeWhile(_ < sqrtN).find(n % _ == 0).isEmpty
+    }
+  }
+
   private def numFactorsFromPrimeFactorization(m: Map[Int, Int]) = m.map(_._2 + 1).product
 
   private def primeFactorizationPermutations(m: Map[Int, Int]) = {
