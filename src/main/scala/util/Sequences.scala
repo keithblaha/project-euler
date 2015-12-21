@@ -1,11 +1,11 @@
 package com.keithblaha.euler.util
 
-import scala.collection.mutable.Buffer
+import scala.collection.mutable.{Buffer, Map => MutableMap}
 
 object Sequences {
   def primesTo(limit: Int) = {
     // use optimized Sieve of Eratosthenes
-    val isPrimeMap = scala.collection.mutable.Map[Int, Boolean]()
+    val isPrimeMap = MutableMap[Int, Boolean]()
     val primes = Buffer[Int](2)
 
     // only need to look at odds

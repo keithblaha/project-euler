@@ -1,5 +1,6 @@
 package com.keithblaha.euler.problem
 
+import scala.collection.mutable.{Set => MutableSet}
 import scala.util.control.Breaks._
 
 import com.keithblaha.euler.util.Factor._
@@ -11,7 +12,7 @@ class Problem23 extends EulerProblem {
   val primes = primesTo(limit)
   val abundantNumbers = nums.filter(n => sumOfProperFactors(n, primes) > n)
 
-  val sumsOfAbundants = scala.collection.mutable.Set[Int]()
+  val sumsOfAbundants = MutableSet[Int]()
   for(i <- 0 until abundantNumbers.size) {
     breakable {
       for(j <- i until abundantNumbers.size) {

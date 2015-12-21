@@ -1,5 +1,7 @@
 package com.keithblaha.euler.problem
 
+import scala.collection.mutable.{Set => MutableSet}
+
 import com.keithblaha.euler.util.Factor._
 import com.keithblaha.euler.util.Sequences._
 
@@ -13,7 +15,7 @@ class Problem21 extends EulerProblem {
   }
 
   override def solution = {
-    val alreadyCounted = scala.collection.mutable.Set[Int]()
+    val alreadyCounted = MutableSet[Int]()
     var sum = 0
     (2 until 10000).foreach(n => {
       if(!alreadyCounted.exists(_ == n)) {

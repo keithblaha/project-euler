@@ -1,5 +1,7 @@
 package com.keithblaha.euler.problem
 
+import scala.collection.mutable.{Map => MutableMap}
+
 import com.keithblaha.euler.util.Factor._
 import com.keithblaha.euler.util.Sequences._
 
@@ -7,7 +9,7 @@ class Problem5 extends EulerProblem {
   val primes = primesTo(100)
 
   override def solution = {
-    val maxPowers = scala.collection.mutable.Map[Int, Int]()
+    val maxPowers = MutableMap[Int, Int]()
     (2 to 20).foreach(i => {
       val primeFact = primeFactorization(i, primes)
       primeFact.keys.foreach(j => {
