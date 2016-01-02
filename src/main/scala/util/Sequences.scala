@@ -28,15 +28,27 @@ object Sequences {
   }
 
   def triangularsTo(limit: Long) = {
-    Stream.iterate((1L,1L))(x=>(x._1+1,x._1+x._2+1)).takeWhile(_._2 <= limit).map(_._2).toList
+    Stream.iterate((1L,1L))(x => (x._1 + 1, (x._1 + 1) * (x._1 + 2) / 2)).takeWhile(_._2 <= limit).map(_._2).toList
+  }
+
+  def squaresTo(limit: Long) = {
+    Stream.iterate((1L,1L))(x => (x._1 + 1, ((x._1 + 1) * (x._1 + 1)))).takeWhile(_._2 <= limit).map(_._2).toList
   }
 
   def pentagonalsTo(limit: Long) = {
-    Stream.iterate((1L,1L))(x => (x._1 + 1, (x._1 + 1) * (3*(x._1 + 1) - 1) / 2)).takeWhile(_._2 <= limit).map(_._2).toList
+    Stream.iterate((1L,1L))(x => (x._1 + 1, (x._1 + 1) * (3 * (x._1 + 1) - 1) / 2)).takeWhile(_._2 <= limit).map(_._2).toList
   }
 
   def hexagonalsTo(limit: Long) = {
-    Stream.iterate((1L,1L))(x => (x._1 + 1, (x._1 + 1) * (2*(x._1 + 1) - 1))).takeWhile(_._2 <= limit).map(_._2).toList
+    Stream.iterate((1L,1L))(x => (x._1 + 1, (x._1 + 1) * (2 * (x._1 + 1) - 1))).takeWhile(_._2 <= limit).map(_._2).toList
+  }
+
+  def heptagonalsTo(limit: Long) = {
+    Stream.iterate((1L,1L))(x => (x._1 + 1, (x._1 + 1) * (5 * (x._1 + 1) - 3) / 2)).takeWhile(_._2 <= limit).map(_._2).toList
+  }
+
+  def octagonalsTo(limit: Long) = {
+    Stream.iterate((1L,1L))(x => (x._1 + 1, (x._1 + 1) * (3 * (x._1 + 1) - 2))).takeWhile(_._2 <= limit).map(_._2).toList
   }
 }
 
